@@ -1,0 +1,1 @@
+PowerdnsOnRails::Application.config.secret_token = "gadfhrehaer{%!@RWEfasdfasdgse456qwefgvASEDCVSDRQ123eqwdasc\ad}"

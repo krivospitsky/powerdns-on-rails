@@ -41,5 +41,6 @@ module PowerdnsOnRails
     config.filter_parameters += [:password]
 
     config.active_record.whitelist_attributes = false
+    config.assets.initialize_on_precompile = false 
   end
 end
