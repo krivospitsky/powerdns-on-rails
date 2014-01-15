@@ -15,6 +15,8 @@ class Domain < ActiveRecord::Base
 
   belongs_to :user
 
+  belongs_to :zone_template
+
   has_many :records, :dependent => :destroy
 
   has_one  :soa_record,    :class_name => 'SOA'
@@ -79,7 +81,7 @@ class Domain < ActiveRecord::Base
   def to_xml(options={})
     super(options.merge(:include => :records))
   end
-  
+
   # Are we a slave domain
   def slave?
     self.type == 'SLAVE'

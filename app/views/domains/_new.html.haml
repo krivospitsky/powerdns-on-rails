@@ -39,6 +39,10 @@
             =link_to((t :label_create_zone_templates), new_zone_template_path)
             =t :label_zone_for_eazy_management
       %td &nbsp;
+  #template-input
+
+    =label_tag :recieve_changes, 'Recieve changes from template'
+    =check_box_tag :recieve_changes
 
 
   #no-template-input

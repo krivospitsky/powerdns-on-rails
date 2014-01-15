@@ -103,7 +103,7 @@ ActiveRecord::Schema.define(:version => 20130419205056) do
     t.string   "content",     :null => false
     t.integer  "ttl",         :null => false
     t.integer  "prio"
-    t.integer  "change_date", :null => false
+    t.integer  "change_date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

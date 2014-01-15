@@ -46,3 +46,5 @@ group :test do
   gem 'webrat'
   gem 'database_cleaner'
 end
+
+gem 'sqlite3'

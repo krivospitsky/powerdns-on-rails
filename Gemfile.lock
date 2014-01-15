@@ -2,6 +2,7 @@ GEM
   remote: http://rubygems.org/
   specs:
     RedCloth (4.2.9)
+    RedCloth (4.2.9-x86-mingw32)
     actionmailer (3.2.13)
       actionpack (= 3.2.13)
       mail (~> 2.5.3)
@@ -36,6 +37,7 @@ GEM
       activerecord (~> 3.0)
       audited (= 3.0.0)
     bcrypt-ruby (3.0.1)
+    bcrypt-ruby (3.0.1-x86-mingw32)
     builder (3.0.4)
     capybara (2.0.1)
       mime-types (>= 1.16)
@@ -89,7 +91,10 @@ GEM
       factory_girl (~> 4.2.0)
       railties (>= 3.0.0)
     ffi (1.2.0)
+    ffi (1.2.0-x86-mingw32)
     gherkin (2.11.5)
+      json (>= 1.4.6)
+    gherkin (2.11.5-x86-mingw32)
       json (>= 1.4.6)
     haml (4.0.0)
       tilt
@@ -123,6 +128,7 @@ GEM
     multi_json (1.7.2)
     mysql2 (0.3.11)
     nokogiri (1.5.5)
+    nokogiri (1.5.5-x86-mingw32)
     orm_adapter (0.4.0)
     pg (0.15.0)
     polyglot (0.3.3)
@@ -209,6 +215,7 @@ GEM
 
 PLATFORMS
   ruby
+  x86-mingw32
 
 DEPENDENCIES
   RedCloth (>= 4.1.1)
