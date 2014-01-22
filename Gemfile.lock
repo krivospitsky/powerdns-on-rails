@@ -257,5 +257,6 @@ DEPENDENCIES
   state_machine
   therubyracer
   uglifier
+  unicorn
   webrat
   will_paginate (~> 3.0.4)
