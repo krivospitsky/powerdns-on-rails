@@ -251,6 +251,7 @@ DEPENDENCIES
   haml-rails
   inherited_resources
   jquery-rails
+  kgio
   mocha
   pg (>= 0.9.0)
   rabl
