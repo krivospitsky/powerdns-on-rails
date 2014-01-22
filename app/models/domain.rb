@@ -106,6 +106,19 @@ class Domain < ActiveRecord::Base
     end
   end
 
+  attr_accessor :name
+  def name
+    SimpleIDN.to_unicode(super)
+  end
+
+  def name=(val)
+    write_attribute(:name, SimpleIDN.to_ascii(val))
+  end
+
+  def name_before_type_cast
+    SimpleIDN.to_unicode(super)
+  end
+
   # Setup an SOA if we have the requirements
   def create_soa_record #:nodoc:
     return if self.slave?

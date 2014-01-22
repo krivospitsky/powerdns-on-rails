@@ -50,3 +50,4 @@ end
 
 # Use Capistrano for deployment
 gem 'capistrano', '~> 2', group: :development
+gem 'simpleidn'
