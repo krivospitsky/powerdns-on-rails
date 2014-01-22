@@ -2,6 +2,7 @@ class ZoneTemplate < ActiveRecord::Base
 
   belongs_to :user
   has_many :record_templates
+  has_many :domains
 
   validates_presence_of :name
   validates_uniqueness_of :name
@@ -41,6 +42,7 @@ class ZoneTemplate < ActiveRecord::Base
   def build( domain_name, user = nil )
     domain = Domain.new( :name => domain_name, :ttl => self.ttl )
     domain.user = user if user.is_a?( User )
+    domain.zone_template=self
 
     self.class.transaction do
       # Pick our SOA template out, and populate the zone

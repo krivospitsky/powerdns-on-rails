@@ -1,6 +1,9 @@
 %tr
   %td
     = link_to domain.name, domain_path( domain )
+  %td
+    - if (domain.zone_template)
+      =link_to domain.zone_template.name, zone_template_path( domain.zone_template )
   %td &nbsp;
   %td
     = link_to info_icon('table_edit.png', 'zone-edit'), edit_domain_path(domain)

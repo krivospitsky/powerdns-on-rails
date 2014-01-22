@@ -9,9 +9,7 @@ group :assets do
 end
 
 platforms :ruby do
-  gem 'mysql2', '~> 0.3.11'
   gem 'pg', '>= 0.9.0'
-  gem 'sqlite3'
   gem 'therubyracer'
 end
 
@@ -34,6 +32,7 @@ group :development do
 end
 
 group :development, :test do
+  gem 'sqlite3'
   gem "rspec-rails"
   gem 'RedCloth', '>= 4.1.1'
 end
@@ -47,4 +46,5 @@ group :test do
   gem 'database_cleaner'
 end
 
-gem 'sqlite3'
+# Use Capistrano for deployment
+gem 'capistrano', '~> 2', group: :development

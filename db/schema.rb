@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130419205056) do
+ActiveRecord::Schema.define(:version => 20140122083239) do
 
   create_table "audits", :force => true do |t|
     t.integer  "auditable_id"
@@ -49,14 +49,15 @@ ActiveRecord::Schema.define(:version => 20130419205056) do
     t.string   "name"
     t.string   "master"
     t.integer  "last_check"
-    t.string   "type",            :default => "NATIVE"
+    t.string   "type",             :default => "NATIVE"
     t.integer  "notified_serial"
     t.string   "account"
-    t.integer  "ttl",             :default => 86400
-    t.datetime "created_at",                            :null => false
-    t.datetime "updated_at",                            :null => false
+    t.integer  "ttl",              :default => 86400
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
     t.integer  "user_id"
     t.text     "notes"
+    t.integer  "zone_template_id"
   end
 
   add_index "domains", ["name"], :name => "index_domains_on_name"

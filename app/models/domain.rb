@@ -14,7 +14,6 @@ class Domain < ActiveRecord::Base
   has_associated_audits
 
   belongs_to :user
-
   belongs_to :zone_template
 
   has_many :records, :dependent => :destroy
