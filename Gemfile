@@ -11,7 +11,6 @@ end
 platforms :ruby do
   gem 'pg', '>= 0.9.0'
   gem 'therubyracer'
-  gem 'unicorn'
 end
 
 gem 'haml-rails'
@@ -49,3 +48,4 @@ end
 
 # Use Capistrano for deployment
 gem 'capistrano', '~> 2', group: :development
+gem 'unicorn'
