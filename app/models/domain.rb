@@ -57,7 +57,8 @@ class Domain < ActiveRecord::Base
   attr_accessor :serial
 
   # Helper attributes for API clients and forms (keep it RESTful)
-  attr_accessor :zone_template_id, :zone_template_name
+  #attr_accessor :zone_template_id, :zone_template_name
+  attr_accessible :zone_template_id, :zone_template_name, :master, :type, :ttl, :name
 
   # Needed for acts_as_audited (TODO: figure out why this is needed...)
   #attr_accessible :type

@@ -38,6 +38,8 @@ GEM
       audited (= 3.0.0)
     bcrypt-ruby (3.0.1)
     bcrypt-ruby (3.0.1-x86-mingw32)
+    bootstrap-sass (3.0.3.0)
+      sass (~> 3.2)
     builder (3.0.4)
     capistrano (2.15.5)
       highline
@@ -242,6 +244,7 @@ DEPENDENCIES
   RedCloth (>= 4.1.1)
   acts_as_list
   audited-activerecord (~> 3.0.0.rc2)
+  bootstrap-sass (~> 3.0.3.0)
   capistrano (~> 2)
   coffee-rails
   cucumber-rails

@@ -28,6 +28,10 @@
       %td= t :label_default_ttl
       %td= f.text_field :ttl, :size => 8
       %td= help_icon('help-ttl')
+    %tr
+      %td= t :label_template
+      %td= f.collection_select :zone_template_id,  ZoneTemplate.all, :id, :name, include_blank: true
+      %td= help_icon('help-template')
   %table.grid
     %tr
       %td.right{:width => "300"}= link_to_cancel @domain

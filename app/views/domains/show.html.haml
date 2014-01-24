@@ -92,77 +92,84 @@
               = link_to_function t(:generic_cancel), "hideNoteForm()"
               = submit_tag(t(:generic_update))
 
-#domain-soa.padded
+
+-if @domain.zone_template
   %h2.underline
-    = t :title_soa_record
-    &nbsp;
-    - if current_user
-      = link_to_function info_icon('database_edit.png', 'soa-record-edit'), "showSOAEdit()"
-  - if @domain.soa_record.nil?
-    %p
-      %em= t :label_soa_record_yet_propagated_from_master
-  - else
-    = render :partial => '/domains/soa_record', :object => @domain.soa_record
+    = t :inherited_from
+    &nbsp;-&nbsp;
+    = link_to @domain.zone_template.name, zone_template_path(@domain.zone_template)
+-else
+  #domain-soa.padded
+    %h2.underline
+      = t :title_soa_record
+      &nbsp;
+      - if current_user
+        = link_to_function info_icon('database_edit.png', 'soa-record-edit'), "showSOAEdit()"
+    - if @domain.soa_record.nil?
+      %p
+        %em= t :label_soa_record_yet_propagated_from_master
+    - else
+      = render :partial => '/domains/soa_record', :object => @domain.soa_record
 
-#domain-records.padded
-  %h2.underline= t :title_domian_rrs
-  %table.gridwide#record-table
-    %tr
-      %td.small= t :label_domain_record_host
-      %td.small= t :label_domain_record_ttl
-      %td.small= t :label_domain_record_type
-      %td.small= t :label_domain_record_priority
-      %td.small= t :label_domain_record_data
-      %td &nbsp;
-    = render :partial => 'record', :collection => @domain.records_without_soa
+  #domain-records.padded
+    %h2.underline= t :title_domian_rrs
+    %table.table.table-striped.table-hover
+      %tr
+        %td= t :label_domain_record_host
+        %td= t :label_domain_record_ttl
+        %td= t :label_domain_record_type
+        %td= t :label_domain_record_priority
+        %td= t :label_domain_record_data
+        %td &nbsp;
+      = render :partial => 'record', :collection => @domain.records_without_soa
 
-- unless @domain.slave?
-  - if current_user || current_token.allow_new_records?
-    = link_to_function info_icon('database_add.png', 'record-template-new'), "displayRecordForm()"
-    = link_to_function t(:label_domain_record_new), "displayRecordForm()"
+  - unless @domain.slave?
+    - if current_user || current_token.allow_new_records?
+      = link_to_function info_icon('database_add.png', 'record-template-new'), "displayRecordForm()"
+      = link_to_function t(:label_domain_record_new), "displayRecordForm()"
 
-    #record-form-div{ :style => "display: none;" }
-      = form_for( :record, :url => domain_records_path( @domain ), :remote => true, :html => { :id => 'record-form' } ) do |f|
-        %table
-          %tr.all
-            %td= t :label_domain_record_type
-            %td
-              = select_record_type( f )
-          %tr.all
-            %td= t :label_domain_record_host
-            %td= f.text_field :name
-          %tr.all
-            %td= t :label_domain_record_ttl
-            %td= f.text_field :ttl, :size => 6
-          %tr.rt-mx.rt-srv{ :style => 'display :none' }
-            %td= t :label_domain_record_priority
-            %td= f.text_field :prio, :size => 6
-          %tr.all
-            %td= t :label_domain_record_data
-            %td= f.text_field :content
-          %tr.rt-soa{ :style => 'display :none' }
-            %td= t :label_primary_name_server
-            %td= f.text_field :primary_ns
-          %tr.rt-soa{ :style => 'display :none' }
-            %td= t :label_domain_contact
-            %td= f.text_field :contact
-          %tr.rt-soa{ :style => 'display :none' }
-            %td= t :label_domain_refresh
-            %td= f.text_field :refresh, :size => 6
-          %tr.rt-soa{ :style => 'display :none' }
-            %td= t :label_domain_retry
-            %td= f.text_field :retry, :size => 6
-          %tr.rt-soa{ :style => 'display :none' }
-            %td= t :label_domain_expire
-            %td= f.text_field :expire, :size => 6
-          %tr.rt-soa{ :style => 'display :none' }
-            %td= t :label_domain_minimum
-            %td= f.text_field :minimum, :size => 6
-          %tr.all
-            %td &nbsp;
-            %td
-              = link_to_function(t(:generic_cancel), "hideRecordForm()")
-              = submit_tag(t(:generic_create))
+      #record-form-div{ :style => "display: none;" }
+        = form_for( :record, :url => domain_records_path( @domain ), :remote => true, :html => { :id => 'record-form' } ) do |f|
+          %table
+            %tr.all
+              %td= t :label_domain_record_type
+              %td
+                = select_record_type( f )
+            %tr.all
+              %td= t :label_domain_record_host
+              %td= f.text_field :name
+            %tr.all
+              %td= t :label_domain_record_ttl
+              %td= f.text_field :ttl, :size => 6
+            %tr.rt-mx.rt-srv{ :style => 'display :none' }
+              %td= t :label_domain_record_priority
+              %td= f.text_field :prio, :size => 6
+            %tr.all
+              %td= t :label_domain_record_data
+              %td= f.text_field :content
+            %tr.rt-soa{ :style => 'display :none' }
+              %td= t :label_primary_name_server
+              %td= f.text_field :primary_ns
+            %tr.rt-soa{ :style => 'display :none' }
+              %td= t :label_domain_contact
+              %td= f.text_field :contact
+            %tr.rt-soa{ :style => 'display :none' }
+              %td= t :label_domain_refresh
+              %td= f.text_field :refresh, :size => 6
+            %tr.rt-soa{ :style => 'display :none' }
+              %td= t :label_domain_retry
+              %td= f.text_field :retry, :size => 6
+            %tr.rt-soa{ :style => 'display :none' }
+              %td= t :label_domain_expire
+              %td= f.text_field :expire, :size => 6
+            %tr.rt-soa{ :style => 'display :none' }
+              %td= t :label_domain_minimum
+              %td= f.text_field :minimum, :size => 6
+            %tr.all
+              %td &nbsp;
+              %td
+                = link_to_function(t(:generic_cancel), "hideRecordForm()")
+                = submit_tag(t(:generic_create))
 
 :javascript
   function editRecord(id, type) {

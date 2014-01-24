@@ -1,11 +1,8 @@
 #new-user{ :style => 'display: none' }= t :help_user_add
 
-%h2.underline= t :title_users
+%h2= t :title_users
 
-%table.gridwide
-  %tr
-    %td{ :colspan => 5 }
-      = link_to info_icon('user_add.png', 'new-user'), new_user_path
-      = link_to t(:label_user_create), new_user_path
+%table.table.table-striped.table-hover
   = render :partial => 'user', :collection => @users
 
+= link_to t(:label_user_create), new_user_path, class:"btn btn-primary"

@@ -6,14 +6,19 @@
   #audits=t :help_audits
   #macro=t :help_macro
 
-%ul.start
-  %li
-    = link_to info_icon('database_add.png', 'new-zone'), new_domain_path
-    = link_to t(:label_add_new_zone), new_domain_path
 
-%h1.underline= t :title_domains_list
+%h1= t :title_domains_list
+- if current_user
+  = form_tag( { :controller => :search, :action => :results }, { :method => :get, :class => "navbar-form navbar-left", :role=>"search" } ) do
+    .form-group
+      .input-group
+        = text_field_tag :q, nil, class:"form-control", placeholder:"Search"
+        %span.input-group-btn
+          %button.btn.btn-default{type:"submit"}
+            Search
 
-%table
+%table.table.table-striped.table-hover
   = render :partial => 'domain', :collection => @domains
-
 = will_paginate @domains
+
+= link_to t(:label_add_new_zone), new_domain_path, class:"btn btn-primary"

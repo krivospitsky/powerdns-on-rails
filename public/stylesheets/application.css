@@ -10,12 +10,6 @@ body {
     width: 800px;
     margin: 0 auto;
 }
-#Header {
-    height: 80px;
-    background-image: url(../images/top-background.png);
-    background-repeat: repeat-x;
-    padding-left: 20px;
-}
 #Header h1 {
     padding: 0;
     margin: 0;
