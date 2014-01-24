@@ -41,7 +41,6 @@ _Note on versions:_ PowerDNS on Rails is version-less, and the master branch wil
 * Zone/Record Templates
 * DNS Insight
 * Full audit record of all changes
-* Macros for easy bulk updating of domains
 * Support for PowerDNS MASTER, NATIVE & SLAVE record types
 
 ## Overview

@@ -3,7 +3,6 @@ class DomainsController < InheritedResources::Base
   # Keep token users in line
   before_filter :restrict_token_movements, :except => :show
 
-  custom_actions :resource => :apply_macro
   respond_to :xml, :json, :js, :html
 
   protected
@@ -72,37 +71,6 @@ class DomainsController < InheritedResources::Base
     respond_to do |wants|
       wants.js
     end
-  end
-
-  # GET: list of macros to apply
-  # POST: apply selected macro
-  def apply_macro
-    @domain = resource
-
-    if request.get?
-      @macros = Macro.user(current_user)
-
-      respond_to do |format|
-        format.html
-        format.json
-        format.xml
-      end
-
-    else
-      @macro = Macro.user( current_user ).find( params[:macro_id] )
-      @macro.apply_to( resource )
-
-      respond_to do |format|
-        format.html {
-          flash[:notice] = t(:message_domain_macro_applied)
-          redirect_to resource
-        }
-        format.json { render :status => 202 }
-        format.xml { render :status => 202 }
-      end
-
-    end
-
   end
 
 end

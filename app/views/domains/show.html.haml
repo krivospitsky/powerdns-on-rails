@@ -8,7 +8,6 @@
   #note-edit=t :note_edit
   #delete-zone=t :help_delete_zone
   #audits=t :help_audits
-  #macro=t :help_macro
   #change-owner=t :help_change_owner
   #help-primary-ns=t :help_domain_primary_ns
   #help-contact=t :help_domain_contact
@@ -46,8 +45,6 @@
         - if current_user
           = link_to info_icon('table_edit.png', 'zone-edit'), edit_domain_path(@domain)
           = link_to info_icon('report_magnify.png', 'audits'), audits_path(:action => :domain, :id => @domain)
-          - unless @domain.slave?
-            = link_to info_icon('brick_go.png', 'macro'), apply_macro_domain_path( @domain )
           - if current_user.admin? && @domain.user
             = link_to_function info_icon('database_delete.png', 'delete-zone'), "deleteDomain();" , :id => "delete-link-buffer"
           - elsif !current_token

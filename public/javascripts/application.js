@@ -44,15 +44,9 @@ $(document).ready(function() {
     toggleRecordFields( $(this).val() );
   });
 
-  // Used by the new macro step form
-  $('#record-form #macro_step_record_type').change(function() {
-    toggleRecordFields( $(this).val() );
-  });
-});
-
 // Ajax activity indicator bound to ajax start/stop document events
-$(document).ajaxStart(function(){ 
-  $('#ajaxBusy').show(); 
-}).ajaxStop(function(){ 
+$(document).ajaxStart(function(){
+  $('#ajaxBusy').show();
+}).ajaxStop(function(){
   $('#ajaxBusy').hide();
 });

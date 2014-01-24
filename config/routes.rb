@@ -6,8 +6,6 @@ PowerdnsOnRails::Application.routes.draw do
   resources :domains do
     member do
       put :change_owner
-      get :apply_macro
-      post :apply_macro
       put :update_note
     end
 
@@ -20,10 +18,6 @@ PowerdnsOnRails::Application.routes.draw do
 
   resources :zone_templates, :controller => 'templates'
   resources :record_templates
-
-  resources :macros do
-    resources :macro_steps
-  end
 
   match '/audits(/:action(/:id))' => 'audits#index', :as => :audits
   match '/reports(/:action)' => 'reports#index', :as => :reports

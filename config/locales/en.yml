@@ -15,7 +15,7 @@ en:
     month_names: [~, January, February, March, April, May, June, July, August, September, October, November, December]
     abbr_month_names: [~, Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec]
     # Used in date_select and datime_select.
-    order: 
+    order:
       - :year
       - :month
       - :day
@@ -115,7 +115,6 @@ en:
   layout_menu_home: "Home"
   layout_menu_domains: "Domains"
   layout_menu_templates: "Templates"
-  layout_menu_macros: "Macros"
   layout_menu_logs: "Logs"
   layout_menu_users: "Users"
   layout_menu_reports: "Reports"
@@ -207,14 +206,6 @@ en:
   label_domain_expire: "Expire"
   label_domain_minimum: "Minimum"
 
-# Domain apply_macro
-  title_macro_for: "Macros for %{domain}"
-  title_macro_apply: "Apply macro"
-  text_macro_description:
-    Macro's provide a convenient way to update a domain with multiple, predefined changes.
-  label_macro_sign: "Macro"
-  label_macro_apply: "Apply macro"
-
 # Domains show
   help_record_template_new:
     Create a new record for this domain
@@ -230,8 +221,6 @@ en:
     Permantly remove this domain from the system
   help_audits:
     Views the audits/history for this domain
-  help_macro:
-    Select a macro and run it against this domain
   help_change_owner:
     Change or remove the owner of this domain
   help_delete_reset:
@@ -276,64 +265,6 @@ en:
   label_domain_more_soa_info: "More information on SOA records"
   link_to_soa_help: "ch8/soa.html"
 
-# Macros_steps _macro_step
-  confirm_macro_step_delte: "Are you sure you want to remove this step?"
-  message_macro_step_created: "Macro step created"
-  message_macro_step_updated: "Macro step updated"
-  message_macro_step_cannot_update: "Could not update macro step"
-
-# Macros edit
-  title_macro_new: "New Macro"
-  title_macro_update: "Update Macro"
-  help_macro_name:
-    Descriptive name for the macro
-  help_macro_active:
-    Macros are disabled by default, and it's recommended you keep them
-    inactive until you're comfortable they perform correctly
-  label_macro_name: "Name"
-  label_macro_description: "Description"
-  label_macro_owner: "Owner"
-  label_macro_active: "Active"
-
-# Macros index
-  help_macro_new: "Add a new macro"
-  help_macro_delete: "Remove the macro"
-  label_macro_add: "Add new macro"
-  message_macro_not_defined:
-    You currently don't have any macros defined.
-
-# Macros show
-  help_macro_step_new:
-    Add a new step to the macro
-  help_macro_edit:
-    Update this macro's information
-  help_macro_delete:
-    Remove this macro
-  help_macro_step_edit:
-    Update this steps' information
-  help_macro_step_delete:
-    Remove this step from the macro
-  help_macro_actions:
-    Macro steps support various actions.<br />"Create" will create new records
-    without clobbering existing records that match.<br />"Update" will update
-    existing records, and do nothing if they can't be found.<br />"Remove" will
-    remove matching records from the domain.<br />"Create update" will update
-    matching records, or create them if they don't exist.
-  help_macro_content_field:
-    All occurences of %ZONE% will be replaced with the domain name.
-  help_macro_name_field:
-    When the "Remove" action is selected, specify an asterisk (*) to remove all
-    matching record types.
-  title_macro_steps: "Macro Steps"
-  message_macro_pleas_refres_for_position:
-    You'll need to refresh the page to see position number updates
-  label_macro_step_position: "Position"
-  label_macro_step_action: "Action"
-  label_macro_step_type: "Type"
-  label_macro_step_name: "Name"
-  label_macro_step_priority: "Priority"
-  label_macro_step_content: "Content"
-  label_macro_step_create_new: "New Macro Step"
 
 # Records create
   message_record_created: "Record created"
@@ -511,13 +442,7 @@ en:
 # domains
   message_domain_created: "Domain created"
   message_domain_updated: "Domain updated"
-  message_domain_macro_applied: "Macro applied to domain"
 
-# macro_steps_controller
-  message_macro_step_removed: "Macro step removed"
-
-# macros_controller
-  message_macro_removed: "Macro removed"
 
 # templates_controller
   message_template_zone_created: "Zone template created"
