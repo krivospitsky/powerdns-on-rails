@@ -1,4 +1,5 @@
-%tr
+%tr[ record, :marker ]
+%tr[ record, :show ]
   %td= record.shortname
   %td= record.ttl
   %td= record.type
@@ -19,15 +20,15 @@
           %div[ record, :error ]
             %table.gridwide
               %tr
-                %td{ :width => 250 }= f.text_field :shortname, :size => 15
-                %td{ :width => 50 }= f.text_field :ttl, :size => 3
-                %td{ :width => 30 }= record.type
-                %td{ :width => 30 }
+                %td= f.text_field :shortname, :size => 15
+                %td= f.text_field :ttl, :size => 3
+                %td= record.type
+                %td
                   - if record.supports_prio?
                     = f.text_field :prio, :size => 2
                   - else
                     &nbsp;
-                %td{ :width => 250 }= f.text_field :content, :size => 15
-                %td{ :width => 39 }
+                %td= f.text_field :content, :size => 15
+                %td
                   = image_submit_tag "table_save.png", { :class => 'nb' }
                   = link_to_function image_tag("cancel.png"), "hideRecord(#{record.id}, '#{record.type.downcase}')"

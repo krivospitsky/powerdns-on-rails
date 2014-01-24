@@ -55,8 +55,7 @@
 
 %p &nbsp;
 
-= link_to_function info_icon('table_add.png', 'new-record-template'), "displayRecordForm()"
-= link_to_function t(:label_template_record_create_new), "displayRecordForm()"
+= link_to_function t(:label_template_record_create_new), "displayRecordForm()", class:'btn btn-primary'
 
 #record-form-div{ :style => 'display:none' }
   = form_for( RecordTemplate.new, :remote => true, :html => { :id => 'record-form' } ) do |f|
@@ -116,8 +115,8 @@
           = help_icon('help-minimum')
         %td &nbsp;
       %tr.all
-        %td.right= link_to_function t(:generic_cancel), "hideAll()"
-        %td= submit_tag t(:generic_save)
+        %td.right= link_to_function t(:generic_cancel), "hideAll()", class:'btn btn-default'
+        %td= submit_tag t(:generic_save), class:'btn btn-primary'
 
 :javascript
   function hideAll() {

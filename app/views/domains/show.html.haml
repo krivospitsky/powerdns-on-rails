@@ -122,8 +122,7 @@
 
   - unless @domain.slave?
     - if current_user || current_token.allow_new_records?
-      = link_to_function info_icon('database_add.png', 'record-template-new'), "displayRecordForm()"
-      = link_to_function t(:label_domain_record_new), "displayRecordForm()"
+      = link_to_function t(:label_domain_record_new), "displayRecordForm()", {class:'btn btn-primary'}
 
       #record-form-div{ :style => "display: none;" }
         = form_for( :record, :url => domain_records_path( @domain ), :remote => true, :html => { :id => 'record-form' } ) do |f|
@@ -165,8 +164,8 @@
             %tr.all
               %td &nbsp;
               %td
-                = link_to_function(t(:generic_cancel), "hideRecordForm()")
-                = submit_tag(t(:generic_create))
+                = link_to_function(t(:generic_cancel), "hideRecordForm()", {class:'btn btn-default'})
+                = submit_tag(t(:generic_create), class:'btn btn-primary')
 
 :javascript
   function editRecord(id, type) {
