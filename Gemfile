@@ -52,3 +52,4 @@ end
 gem 'capistrano', '~> 2', group: :development
 gem 'simpleidn'
 gem "erb2haml", :group => :development
+gem 'will_paginate-bootstrap'
