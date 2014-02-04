@@ -116,8 +116,8 @@ class Record < ActiveRecord::Base
 
   # Append the domain name to the +name+ field if missing
   def append_domain_name!
-    self[:name] = self.domain.name if self[:name].blank?
+    self[:name] = SimpleIDN.to_ascii(self.domain.name) if self[:name].blank?
 
-    self[:name] << ".#{self.domain.name}" unless self[:name].index( self.domain.name )
+    self[:name] << "."+ SimpleIDN.to_ascii(self.domain.name) unless self[:name].index( SimpleIDN.to_ascii(self.domain.name) )
   end
 end
