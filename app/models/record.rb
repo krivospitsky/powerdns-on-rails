@@ -99,6 +99,19 @@ class Record < ActiveRecord::Base
     false
   end
 
+  attr_accessor :name
+  def name
+    SimpleIDN.to_unicode(super)
+  end
+
+  def name=(val)
+    write_attribute(:name, SimpleIDN.to_ascii(val))
+  end
+
+  def name_before_type_cast
+    SimpleIDN.to_unicode(super)
+  end
+
   private
 
   # Append the domain name to the +name+ field if missing

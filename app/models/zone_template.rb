@@ -40,6 +40,7 @@ class ZoneTemplate < ActiveRecord::Base
   # This method will throw exceptions as it encounters errors, and will use a
   # transaction to complete/rollback the operation.
   def build( domain_name, user = nil )
+    domain_name=SimpleIDN.to_ascii(domain_name)
     domain = Domain.new( :name => domain_name, :ttl => self.ttl )
     domain.user = user if user.is_a?( User )
     domain.zone_template=self
